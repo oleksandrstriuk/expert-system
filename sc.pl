@@ -3,53 +3,53 @@ Petro Mohyla Black Sea State University, Mykolaiv 2019.*/
 
 go:-
 hypothesis(Disease),
-write('I believe that the patient have '),
+write('I assume that you have '),
 write(Disease),
 nl,
-write('TAKE CARE! '),
+write('Take care of yourself! '),
 undo.
 
-/*Hypothesis that should be tested*/
+/*The hypothesis that needs be verified.*/
 
 hypothesis(cold) :- cold, !.
 hypothesis(flu) :- flu, !.
 hypothesis(typhoid) :- typhoid, !.
 hypothesis(measles) :- measles, !.
 hypothesis(malaria) :- malaria, !.
-hypothesis(unknown). /* no diagnosis*/
+hypothesis(unknown). /*Unknown disease.*/
 
-/*Hypothesis Identification Rules*/
+/*Hypothesis identification rules.*/
 
 cold :-
 verify(headache),
 verify(runny_nose),
 verify(sneezing),
 verify(sore_throat),
-write('Advices and Sugestions:'),
+write('Suggestions and Advice:'),
 nl,
-write('1: Tylenol/tab'),
+write('1: Paracetamol/tab'),
 nl,
-write('2: panadol/tab'),
+write('2: Tilorone/tab'),
 nl,
-write('3: Nasal spray'),
+write('3: Nasal Spray'),
 nl,
-write('Please weare warm cloths Because'),
+write('Please wear warm clothes because'),
 nl.
 
 flu :-
 verify(fever),
 verify(headache),
 verify(chills),
-verify(body_ache),
-write('Advices and Sugestions:'),
+verify(body_aches),
+write('Suggestions and Advice:'),
 nl,
-write('1: Tamiflu/tab'),
+write('1: Oseltamivir/tab'),
 nl,
-write('2: panadol/tab'),
+write('2: Paracetamol/tab'),
 nl,
 write('3: Zanamivir/tab'),
 nl,
-write('Please take a warm bath and do salt gargling Because'),
+write('Please drink more fluids and gargle regularly because'),
 nl.
 
 typhoid :-
@@ -57,7 +57,7 @@ verify(headache),
 verify(abdominal_pain),
 verify(poor_appetite),
 verify(fever),
-write('Advices and Sugestions:'),
+write('Suggestions and Advice:'),
 nl,
 write('1: Chloramphenicol/tab'),
 nl,
@@ -67,7 +67,7 @@ write('3: Ciprofloxacin/tab'),
 nl,
 write('4: Azithromycin/tab'),
 nl,
-write('Please do complete bed rest and take soft Diet Because'),
+write('Please follow strict bed rest and keep a soft diet because'),
 nl.
 
 measles :-
@@ -75,43 +75,43 @@ verify(fever),
 verify(runny_nose),
 verify(rash),
 verify(conjunctivitis),
-write('Advices and Sugestions:'),
+write('Suggestions and Advice:'),
 nl,
-write('1: Tylenol/tab'),
+write('1: Paracetamol/tab'),
 nl,
-write('2: Aleve/tab'),
+write('2: Naproxen/tab'),
 nl,
-write('3: Advil/tab'),
+write('3: Ibuprofen/tab'),
 nl,
 write('4: Vitamin A'),
 nl,
-write('Please Get rest and use more liquid Because'),
+write('Please get rest and drink more fluids because'),
 nl.
 
 malaria :-
 verify(fever),
-verify(sweating),
+verify(hyperhidrosis),
 verify(headache),
 verify(nausea),
 verify(vomiting),
 verify(diarrhea),
-write('Advices and Sugestions:'),
+write('Suggestions and Advice:'),
 nl,
-write('1: Aralen/tab'),
+write('1: Chloroquine/tab'),
 nl,
-write('2: Qualaquin/tab'),
+write('2: Quinine/tab'),
 nl,
-write('3: Plaquenil/tab'),
+write('3: Hydroxychloroquine/tab'),
 nl,
 write('4: Mefloquine'),
 nl,
-write('Please do not sleep in open air and cover your full skin Because'),
+write('Please do not sleep outdoors and cover your skin because'),
 nl.
 
-/* how to ask questions */
+/*The format for asking questions.*/
 
 ask(Question) :-
-write('Does the patient have following symptom:'),
+write('Does the patient have the following symptom:'),
 write(Question),
 write('? '),
 read(Response),
@@ -122,7 +122,9 @@ assert(yes(Question)) ;
 assert(no(Question)), fail).
 
 :- dynamic yes/1,no/1.
-/*How to verify something */
+
+/*How to verify?*/
+
 verify(S) :-
 (yes(S)
 ->
@@ -131,7 +133,9 @@ true ;
 ->
 fail ;
 ask(S))).
-/* undo all yes/no assertions*/
+
+/*Undo all yes/no assertions.*/
+
 undo :- retract(yes(_)),fail.
 undo :- retract(no(_)),fail.
 undo.
