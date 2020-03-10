@@ -1,6 +1,6 @@
 # Description
 
-Implementation of a simple expert system that allows you to assess the condition of the patient using logical rules and checking the input data.
+Implementation of a simple expert system that allows you to assess the condition of a patient using logical rules and checking the input data.
 
 The project is created using SWI-Prolog — a free implementation of the programming language Prolog.
 
