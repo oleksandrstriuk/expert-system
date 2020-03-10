@@ -1,5 +1,4 @@
-/*Expert diagnosis system project. Attachment for laboratory work.
-Petro Mohyla Black Sea State University, Mykolaiv 2019.*/
+/*Expert diagnosis system project.*/
 
 go:-
 hypothesis(Disease),
