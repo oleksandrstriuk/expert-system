@@ -8,7 +8,7 @@ nl,
 write('Take care of yourself! '),
 undo.
 
-/*The hypothesis that needs be verified.*/
+/*The hypothesis that needs to be verified.*/
 
 hypothesis(cold) :- cold, !.
 hypothesis(flu) :- flu, !.
